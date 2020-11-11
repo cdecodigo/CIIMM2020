@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span><a href="index.html">regresar</a></span>
+    <h1>Ambient Light</h1>
+
+    <div id="status"></div>
+</body>
+<script>
+    const statusElement = document.querySelector('#status')
+if ( 'AmbientLightSensor' in window ) {
+  const sensor = new AmbientLightSensor();
+  sensor.onreading = () => {
+    console.log('Current light level:', sensor.illuminance);
+    statusElement.innerHTML = 'Current light level: '
+  };
+  sensor.onerror = (event) => {
+    console.log(event.error.name, event.error.message);
+  };
+  sensor.start();
+} else {
+    console.log('la sad')
+    statusElement.innerHTML = 'no sensor'
+}
+</script>
+</html>

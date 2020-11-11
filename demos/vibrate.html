@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <span><a href="../index.html">regresar</a></span>
+    <h1>vibrate</h1>
+
+    <button onclick="vibrar()">vibra!</button>
+
+    <div id='estado'></div>
+</body>
+<script>
+    // navigator.vibrate(1000)
+    const startWars = [500,110,500,110,450,110,450,110,170,40,450,110,200,110,170,40,500]
+    const mario = [125, 75, 125,, 275, 200, 275,125,75,125,275,200,600,200,600]
+
+    function vibrar() {
+        const success = window.navigator.vibrate(startWars)
+        console.log('??', success) 
+        const stadoElement = document.querySelector('#estado')
+        stadoElement.innerHTML = success
+    }
+
+</script>
+</html>

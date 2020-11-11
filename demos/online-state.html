@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <span><a href="../index.html">regresar</a></span>
+    <h1>onLine state</h1>
+    
+    <!-- escribir un tag div con un # online -->
+    <div id="online"></div>
+</body>
+<style>
+    body {
+        height: 100vh;
+    }
+
+    .online {
+        background-color: skyblue;
+        color: black;
+    }
+
+    .offline {
+        background-color: darkblue;
+        color: whitesmoke;
+    }
+</style>
+<script>
+    // console.log(typeof navigator.onLine)
+    // console.log(navigator.onLine ? 'online' : 'offline')
+    
+    function updateNetworkStatus() {
+        const online = navigator.onLine ? 'online' : 'offline'
+        const offline = !navigator.onLine ? 'online' : 'offline'
+        const bodyElement = document.querySelector('#body')
+        bodyElement.classList.remove([offline])
+        bodyElement.classList.add([online])
+
+        const onlineElement = document.querySelector('#online')
+        onlineElement.innerHTML = online
+    }
+
+    updateNetworkStatus()
+
+    window.addEventListener('offline', updateNetworkStatus)
+    window.addEventListener('online', updateNetworkStatus)
+</script>
+</html>
